@@ -1,0 +1,11 @@
+
+#div0{
+    border: rgb(0, 0, 0) solid; background-color: aqua; width:800px;margin: auto;
+}
+
+#div1{
+    border: rgb(0, 0, 0) solid; width: 400px; height: 150px; text-align: center;margin: auto; background-color: rgb(252, 159, 159);
+}
+#div2{
+    border: rgb(0, 0, 0) solid; width:500px ; height:25px ; text-align: center; margin: auto; background-color: rgb(250, 142, 142);
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ejemplo1</title>
+    <script type="text/javascript">
+  
+        let lista=[]
+        function agregar(){
+            let nom,cod,val,cant;
+            nom=document.getElementById('txtNombre').value
+            cod=document.getElementById('txtCodigo').value
+            val=document.getElementById('txtValor').value
+            cant=document.getElementById('txtCantidad').value
+            lista.push(nom,cod,val,cant)
+         
+        }
+
+        function mostrar(){
+            var datos=""
+            for(var i=0;i<lista.length; i++){
+                datos+="Nombre: "+lista[i]+"\n"
+                datos+="Codigo: "+lista[i+1]+"\n"
+                datos+="Valor: "+lista[i+2]+"\n"
+                datos+="Cantidad: "+lista[i+3]+"\n\n"
+                i+=3;
+            }
+            alert(datos)
+        }
+
+        function buscar(){
+            var index=-1
+            let cod=document.getElementById("txtCodigo").value
+            for(var i=0;i<lista.length; i++){
+                index=lista.indexOf(cod)
+            }
+
+            if(index===-1){
+                alert('No Existe el Codigo')
+            }else {
+                document.getElementById('txtNombre').value=lista[index-1]
+                document.getElementById('txtCodigo').value=cod
+                document.getElementById('txtValor').value=lista[index+1]
+                document.getElementById('txtCantidad').value=lista[index+2]
+            }
+            
+        }
+
+        function limpiar(){
+            document.getElementById('txtNombre').value="";
+            document.getElementById('txtCodigo').value="";
+            document.getElementById('txtValor').value="";
+            document.getElementById('txtCantidad').value="";
+            
+        }
+
+        function eliminar(){
+            var index
+            let cod=document.getElementById('txtCodigo').value
+            for(var i=0;i<lista.length; i++){
+                index=lista.indexOf(cod)
+            }
+            if(index){
+                alert('Producto eliminado exitosamente')
+                lista.splice(index -1,4)
+                document.getElementById('txtNombre').value=""
+                document.getElementById('txtCodigo').value=""
+                document.getElementById('txtValor').value=""
+                document.getElementById('txtCantidad').value=""
+            }else{
+            alert('El Producto no se elimino')
+         }
+    }
+
+    function listar(){
+        var out=""
+        /*lista.forEach(function(val,index){ 
+            out+=val+ 'Existe en posicion' +index+"\n"
+        });*/
+        lista.forEach(function(vr){
+            out+=+vr+"\n"
+        })
+        alert(out)
+    }
+    
+    </script>
+</head>
+<link rel="stylesheet" type="text/css" href="./estilo/estilo4.css">
+<body>
+   <div id="div0">
+    <nav id="div1">
+        Nombre
+        <input type="text" id="txtNombre">
+        <br><br>
+        Codigo
+        <input type="text" id="txtCodigo">
+        <br><br>
+        Valor
+        <input type="text" id="txtValor">
+        <br><br>
+        Cantidad
+        <input type="text" id="txtCantidad">
+        <br><br>
+    </nav>
+    <hr>
+    <div id="div2">
+
+        <input type="button" value="Agregar" onclick="agregar()" >
+        &nbsp;&nbsp;&nbsp;
+        <input type="button" value="Mostrar" onclick="mostrar()">
+        &nbsp;&nbsp;&nbsp;
+        <input type="button" value="Buscar" onclick="buscar()">
+        &nbsp;&nbsp;&nbsp;
+        <input type="button" value="limpiar" onclick="limpiar()">
+        &nbsp;&nbsp;&nbsp;
+        <input type="button" value="Eliminar" onclick="eliminar()">
+        &nbsp;&nbsp;&nbsp;
+        <input type="button" value="Listar" onclick="listar()">
+    </div>
+   </div>
+</body>
+</html>
